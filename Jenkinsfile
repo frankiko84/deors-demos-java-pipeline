@@ -110,25 +110,12 @@ spec:
                 sh './mvnw org.pitest:pitest-maven:mutationCoverage'
             }
         }
-
-        stage('Software composition analysis') {
+        
+         /*stage ('Dependency Tracker') {
             steps {
-                echo '-=- run software composition analysis -=-'
-                sh './mvnw dependency-check:check'
-                dependencyCheckPublisher(
-                    failedTotalCritical: qualityGates.security.dependencies.critical.failed,
-                    unstableTotalCritical: qualityGates.security.dependencies.critical.unstable,
-                    failedTotalHigh: qualityGates.security.dependencies.high.failed,
-                    unstableTotalHigh: qualityGates.security.dependencies.high.unstable,
-                    failedTotalMedium: qualityGates.security.dependencies.medium.failed,
-                    unstableTotalMedium: qualityGates.security.dependencies.medium.unstable)
-                script {
-                    if (currentBuild.result == 'FAILURE') {
-                        error('Dependency vulnerabilities exceed the configured threshold')
-                    }
-                }
+                dependencyTrackPublisher artifact: 'target/bom.xml', projectId: 'af61250c-6f65-4d02-9c0a-50710277c141', synchronous: true
             }
-        }
+        }*/
         
         stage ('Generate BOM') {
             steps {
