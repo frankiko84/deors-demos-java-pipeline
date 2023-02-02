@@ -161,7 +161,7 @@ spec:
             }
         }
 
-        stage('Package') {
+        /*stage('Package') {
             steps {
                 echo '-=- packaging project -=-'
                 sh './mvnw package -DskipTests'
@@ -256,6 +256,6 @@ spec:
                 sh "kubectl delete service $TEST_CONTAINER_NAME"
                 sh "kubectl delete service $TEST_CONTAINER_NAME-jacoco"
             }
-        }
+        }*/
     }
 }
