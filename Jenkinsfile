@@ -130,17 +130,17 @@ spec:
             }
         }
         
-        /*stage ('Generate BOM') {
+        stage ('Generate BOM') {
             steps {
                 sh './mvnw org.cyclonedx:cyclonedx-maven-plugin:makeBom'
             }
         }
         
-        stage ('Dependency Tracker') {
+        /*stage ('Dependency Tracker') {
             steps {
                 dependencyTrackPublisher artifact: 'target/bom.xml', projectId: 'af61250c-6f65-4d02-9c0a-50710277c141', synchronous: true
             }
-        }
+        }*/
         
         stage('Software composition analysis') {
             steps {
@@ -256,6 +256,6 @@ spec:
                 sh "kubectl delete service $TEST_CONTAINER_NAME"
                 sh "kubectl delete service $TEST_CONTAINER_NAME-jacoco"
             }
-        }*/
+        }
     }
 }
