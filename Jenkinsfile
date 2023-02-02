@@ -95,7 +95,7 @@ spec:
             }
         }
         
-        /*stage('Code inspection & quality gate') {
+        stage('Code inspection & quality gate') {
             steps {
                  echo '-=- run code inspection & check quality gate -=-'
                  withSonarQubeEnv('ci-sonarqube') {
@@ -136,11 +136,11 @@ spec:
             }
         }
         
-        stage ('Dependency Tracker') {
+        /*stage ('Dependency Tracker') {
             steps {
                 dependencyTrackPublisher artifact: 'target/bom.xml', projectId: 'af61250c-6f65-4d02-9c0a-50710277c141', synchronous: true
             }
-        }
+        }*/
         
         stage('Software composition analysis') {
             steps {
