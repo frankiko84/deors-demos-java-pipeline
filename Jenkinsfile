@@ -88,7 +88,7 @@ spec:
             }
         }
 
-        stage('Compile') {
+        /*stage('Compile') {
             steps {
                 echo '-=- compiling project -=-'
                 sh './mvnw compile'
@@ -111,7 +111,7 @@ spec:
             }
         }
 
-        /*stage('Software composition analysis') {
+        stage('Software composition analysis') {
             steps {
                 echo '-=- run software composition analysis -=-'
                 sh './mvnw dependency-check:check'
@@ -128,7 +128,7 @@ spec:
                     }
                 }
             }
-        }*/
+        }
         
         stage ('Generate BOM') {
             steps {
@@ -136,13 +136,13 @@ spec:
             }
         }
         
-        /* stage ('Dependency Tracker') {
+        stage ('Dependency Tracker') {
             steps {
                 dependencyTrackPublisher artifact: 'target/bom.xml', projectId: 'af61250c-6f65-4d02-9c0a-50710277c141', synchronous: true
             }
-        }*/
+        }
         
-        /*stage('Software composition analysis') {
+        stage('Software composition analysis') {
             steps {
                 echo '-=- run software composition analysis -=-'
                 sh './mvnw dependency-check:check'
@@ -159,7 +159,7 @@ spec:
                     }
                 }
             }
-        }*/
+        }
 
         stage('Package') {
             steps {
@@ -217,21 +217,21 @@ spec:
             }
         }
 
-        // stage('Web page performance analysis') {
-        //     steps {
-        //         echo '-=- execute web page performance analysis -=-'
-        //         sh 'apt-get update'
-        //         sh 'apt-get install -y gnupg'
-        //         sh 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | tee -a /etc/apt/sources.list.d/google.list'
-        //         sh 'curl -sL https://dl.google.com/linux/linux_signing_key.pub | apt-key add -'
-        //         sh 'curl -sL https://deb.nodesource.com/setup_10.x | bash -'
-        //         sh 'apt-get install -y nodejs google-chrome-stable'
-        //         sh 'npm install -g lighthouse@5.6.0'
-        //         sh "lighthouse http://$TEST_CONTAINER_NAME:$APP_LISTENING_PORT/$APP_CONTEXT_ROOT/hello --output=html --output=csv --chrome-flags=\"--headless --no-sandbox\""
-        //         archiveArtifacts artifacts: '*.report.html'
-        //         archiveArtifacts artifacts: '*.report.csv'
-        //     }
-        // }
+        stage('Web page performance analysis') {
+            steps {
+                echo '-=- execute web page performance analysis -=-'
+                sh 'apt-get update'
+                sh 'apt-get install -y gnupg'
+                sh 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | tee -a /etc/apt/sources.list.d/google.list'
+                sh 'curl -sL https://dl.google.com/linux/linux_signing_key.pub | apt-key add -'
+                sh 'curl -sL https://deb.nodesource.com/setup_10.x | bash -'
+                sh 'apt-get install -y nodejs google-chrome-stable'
+                sh 'npm install -g lighthouse@5.6.0'
+                sh "lighthouse http://$TEST_CONTAINER_NAME:$APP_LISTENING_PORT/$APP_CONTEXT_ROOT/hello --output=html --output=csv --chrome-flags=\"--headless --no-sandbox\""
+                archiveArtifacts artifacts: '*.report.html'
+                archiveArtifacts artifacts: '*.report.csv'
+             }
+        }
         
 
         stage('Promote container image') {
@@ -257,5 +257,5 @@ spec:
                 sh "kubectl delete service $TEST_CONTAINER_NAME-jacoco"
             }
         }
-    }
+    }*/
 }
