@@ -136,13 +136,9 @@ spec:
             }
         }
         
-        /*stage ('Dependency Tracker') {
-            steps {
-                dependencyTrackPublisher artifact: 'target/bom.xml', projectId: 'af61250c-6f65-4d02-9c0a-50710277c141', synchronous: true
-            }
-        }*/
+       
         
-        /*stage('Software composition analysis') {
+        stage('Software composition analysis') {
             steps {
                 echo '-=- run software composition analysis -=-'
                 sh './mvnw dependency-check:check'
@@ -159,7 +155,7 @@ spec:
                     }
                 }
             }
-        }*/
+        }
 
         /*stage('Package') {
             steps {
