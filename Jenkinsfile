@@ -88,14 +88,14 @@ spec:
             }
         }
 
-        /*stage('Compile') {
+        stage('Compile') {
             steps {
                 echo '-=- compiling project -=-'
                 sh './mvnw compile'
             }
         }
         
-        stage('Code inspection & quality gate') {
+        /*stage('Code inspection & quality gate') {
             steps {
                  echo '-=- run code inspection & check quality gate -=-'
                  withSonarQubeEnv('ci-sonarqube') {
