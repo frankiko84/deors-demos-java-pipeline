@@ -88,7 +88,7 @@ spec:
            }
        }
 
-        /*stage('Compile') {
+        stage('Compile') {
             steps {
                 echo '-=- compiling project -=-'
                 sh './mvnw compile'
@@ -130,7 +130,7 @@ spec:
             }
         }
         
-        stage ('Generate BOM') {
+        /*stage ('Generate BOM') {
             steps {
                 sh './mvnw org.cyclonedx:cyclonedx-maven-plugin:makeBom'
             }
