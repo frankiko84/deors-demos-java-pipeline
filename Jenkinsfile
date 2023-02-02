@@ -25,13 +25,14 @@ spec:
         runAsUser: 0
         privileged: true
     - name: aks
-      image: ndopbpfoundationacr14943.azurecr.io/devops-platform-image:v0.1.0
+      image: ndoplabacracr45328.azurecr.io/devops-platform-image:v0.1.1
+      imagePullPolicy: Always
       command:
         - sleep
       args:
         - infinity
   imagePullSecrets:
-    - name: ndop-bp-lab-ndop-acr-credential-secret
+    - name: ndop-lab-acr-credential-secret
 '''
         }
     }
