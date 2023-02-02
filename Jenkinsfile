@@ -85,9 +85,10 @@ spec:
                 script {
                     qualityGates = readYaml file: 'quality-gates.yaml'
                 }
-            }
+           }
+       }
 
-        stage('Compile') {
+        /*stage('Compile') {
             steps {
                 echo '-=- compiling project -=-'
                 sh './mvnw compile'
@@ -135,11 +136,11 @@ spec:
             }
         }
         
-        /*stage ('Dependency Tracker') {
+        stage ('Dependency Tracker') {
             steps {
                 dependencyTrackPublisher artifact: 'target/bom.xml', projectId: 'af61250c-6f65-4d02-9c0a-50710277c141', synchronous: true
             }
-        }*/
+        }
         
         stage('Software composition analysis') {
             steps {
@@ -255,6 +256,6 @@ spec:
                 sh "kubectl delete service $TEST_CONTAINER_NAME"
                 sh "kubectl delete service $TEST_CONTAINER_NAME-jacoco"
             }
-        }
+        }*/
     }
 }
