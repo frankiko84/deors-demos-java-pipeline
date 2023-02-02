@@ -86,7 +86,6 @@ spec:
                     qualityGates = readYaml file: 'quality-gates.yaml'
                 }
             }
-        }
 
         stage('Compile') {
             steps {
